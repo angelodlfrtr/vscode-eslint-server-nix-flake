@@ -8,9 +8,11 @@ Stop working at 2c3d198cc648005f8cf5ca64476b8f2da8fa0205 - Convert to pull model
 
 ## Helix languages.toml config :
 
+**Must use abs path to call lsp server (dont know why).**
+
 ```toml
 [language-server.eslint]
-command = "vscode-eslint-server"
+command = "/nix/store/.../bin/vscode-eslint-server"
 args = ["--stdio"]
 
 [language-server.eslint.config]
