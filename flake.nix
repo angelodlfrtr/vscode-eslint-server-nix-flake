@@ -7,7 +7,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     flake-utils,
     ...
@@ -21,8 +20,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "microsoft";
           repo = "vscode-eslint";
-          rev = "b8734bc05119619447a5caf8af0d082cffdec9bb";
-          hash = "sha256-+KDuITtKD7xcoK2L9Pg+Hg+9TGp3Z6TCEKJ4HSN5ZJM=";
+          rev = "d1b62dfd90f5929f54fd3a551a2b985b4cf1cdf5"; # After this rev (> v2.4.4), stop working wirth helix
+          hash = "sha256-kqgIteDrcefrcLVNiVexdxlm4uEIAxSyDWp91bCLMhU=";
         };
 
         pname = "vscode-eslint-server";
@@ -31,7 +30,7 @@
         packages.default = pkgs.buildNpmPackage {
           inherit pname version src;
           patches = [./package-lock.patch];
-          npmDepsHash = "sha256-MgCUhjIEGnJ+3ezyEBt1znWtgGoI2bx02w2DkDcj9VM=";
+          npmDepsHash = "sha256-vVK7pbGhQ2+rNxJ4gVc/IRTl49yHZ4nlkJ/1XzhRLYs=";
           npmBuildScript = "webpack";
 
           buildInputs = [pkgs.nodejs];
